@@ -1,0 +1,58 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  Major: '0'
+  Minor: '1'
+  Patch: '0'
+
+#The build has 3 seperate tasks run under 1 step
+steps:
+
+# The first task is the dotnet command build, pointing to our csproj file
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
+    projects: 'CommonLib/CommonLib.csproj'
+
+# The second task is dotnet pack command again pointing to the csproj file
+# The nobuild means the project will not be compiled before running pack, because its already built in above step
+- task: DotNetCoreCLI@2
+  displayName: "dotnet pack"
+  inputs:
+    command: 'pack'
+    arguments: '--configuration $(buildConfiguration)'
+    packagesToPack: '**/*.csproj'
+    nobuild: true
+    versioningScheme: 'off'
+
+# The last task is a nuget command, nuget push
+# This will push any .nupkg files to the 'TestFeed' artifact feed
+# allowPackageConflicts allows us to build the same version and not throw an error when trying to push
+# instead it just ingores the latest package unless the version changes
+- task: NuGetAuthenticate@0
+  inputs:
+    nuGetServiceConnections: 'Nuget.org'
+
+- task: NuGetCommand@2
+  displayName: 'nuget push'
+  inputs:
+    command: 'push'
+    feedsToUse: 'select'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: external
+    versioningScheme: 'off'
+    allowPackageConflicts: true

@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+    
+jobs:
+  build:
+
+    env:
+      SOLUTION: 'ambient-common.sln'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Restore dependencies
+      run: nuget restore $SOLUTION
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+
+    - name: Build
+      run: dotnet build $SOLUTION --configuration Release
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        # Artifact name
+        name: "ambient-common"
+        path: ambient-common/bin/Release
+        retention-days: 30
+  
+  publish:
+    runs-on: ubuntu-latest
+    
+    needs: [build]
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Download Artifact
+      uses: actions/download-artifact@v2.1.0
+      with:
+        name: "ambient-common"
+        path: ./artifacts
+    
+    - name: Get Build Version
+      uses: kzrnm/get-net-sdk-project-versions-action@v1
+      id: version
+      with:
+         proj-path: ambient-common/ambient-common.csproj
+         
+    - name: Create Release
+      uses: actions/create-release@v1
+      id: create_release
+      with:
+        draft: false
+        prerelease: false
+        release_name: ${{ steps.version.outputs.version }}
+        tag_name: ${{ steps.version.outputs.version }}
+        body_path: CHANGELOG.md
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+
+    - name: Add DLL to release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./artifacts/netstandard2.0/ambient-common.dll
+        asset_name: ambient-common.dll
+        asset_content_type: application/octet-stream
+      
+    - name: Publish to Nuget
+      run: nuget push **\*.nupkg -SkipDuplicate -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
