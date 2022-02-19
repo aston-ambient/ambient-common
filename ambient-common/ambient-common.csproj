@@ -7,13 +7,14 @@
     <Authors>Harman Uppal, Ambient, Aston University</Authors>
     <Description>Common library for ambient game and website</Description>
     <Copyright>2022 Harman Uppal / Aston University</Copyright>
-    <RepositoryUrl>https://dev.azure.com/uppalhrs/ambient-external/_git/ambient-common</RepositoryUrl>
+    <RepositoryUrl>https://github.com/aston-ambient/ambient-common</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>aston_logo_triangle.png</PackageIcon>
     <PackageTags>ambient, aston, game</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Version>0.0.4</Version>
+    <PackageProjectUrl>https://github.com/aston-ambient/ambient-common</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
