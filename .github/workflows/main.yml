@@ -94,7 +94,7 @@ jobs:
         repository: aston-ambient/ambient-common-unity
         # A custom webhook event name.
         event-type: auto-build
-        client-payload: "{ 'version': '${{ steps.create_release.outputs.upload_url }}' }"
+        client-payload: '{"version": "${{ steps.version.outputs.version }}"}'
       
     - name: Publish to Nuget
       if: steps.create_release.outcome == 'success'
