@@ -75,7 +75,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: Add DLL to release
-      if: steps.create_release.outcome == success
+      if: steps.create_release.outcome == 'success'
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
