@@ -83,5 +83,14 @@ jobs:
         asset_name: ambient-common.dll
         asset_content_type: application/octet-stream
       
+    - name: Trigger ambient-common-unity workflow
+      uses: peter-evans/repository-dispatch@v1.1.3
+      with:
+        token: ${{secrets.PAT}}
+        # The full name of the repository to send the dispatch.
+        repository: aston-ambient/ambient-common-unity
+        # A custom webhook event name.
+        event-type: auto-build
+      
     - name: Publish to Nuget
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
