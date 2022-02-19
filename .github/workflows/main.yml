@@ -40,8 +40,8 @@ jobs:
         name: "ambient-common"
         path: ambient-common/bin/Release
         retention-days: 30
-  
-  publish:
+        
+  publish-release:
     runs-on: ubuntu-latest
     
     needs: [build]
@@ -63,6 +63,7 @@ jobs:
          
     - name: Create Release
       uses: actions/create-release@v1
+      continue-on-error: true
       id: create_release
       with:
         draft: false
@@ -74,6 +75,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: Add DLL to release
+      if: steps.create_release.outcome == success
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ github.token }}
@@ -82,6 +84,20 @@ jobs:
         asset_path: ./artifacts/netstandard2.0/ambient-common.dll
         asset_name: ambient-common.dll
         asset_content_type: application/octet-stream
+      
+  trigger-external:
+    runs-on: ubuntu-latest
+    
+    needs: [build]
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Download Artifact
+      uses: actions/download-artifact@v2.1.0
+      with:
+        name: "ambient-common"
+        path: ./artifacts
       
     - name: Trigger ambient-common-unity workflow
       uses: peter-evans/repository-dispatch@v1.1.3
@@ -93,4 +109,5 @@ jobs:
         event-type: auto-build
       
     - name: Publish to Nuget
+      continue-on-error: true
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
