@@ -85,21 +85,8 @@ jobs:
         asset_name: ambient-common.dll
         asset_content_type: application/octet-stream
       
-  trigger-external:
-    runs-on: ubuntu-latest
-    
-    needs: [build]
-    
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Download Artifact
-      uses: actions/download-artifact@v2.1.0
-      with:
-        name: "ambient-common"
-        path: ./artifacts
-      
     - name: Trigger ambient-common-unity workflow
+      if: steps.create_release.outcome == 'success'
       uses: peter-evans/repository-dispatch@v1.1.3
       with:
         token: ${{secrets.PAT}}
@@ -109,5 +96,6 @@ jobs:
         event-type: auto-build
       
     - name: Publish to Nuget
+      if: steps.create_release.outcome == 'success'
       continue-on-error: true
       run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
