@@ -86,7 +86,7 @@ jobs:
         asset_content_type: application/octet-stream
       
     - name: Trigger ambient-common-unity workflow
-      if: steps.create_release.outcome == 'success'
+#       if: steps.create_release.outcome == 'success'
       uses: peter-evans/repository-dispatch@v1.1.3
       with:
         token: ${{secrets.PAT}}
@@ -94,6 +94,7 @@ jobs:
         repository: aston-ambient/ambient-common-unity
         # A custom webhook event name.
         event-type: auto-build
+        client-payload: "{ 'version': '${{ steps.create_release.outputs.upload_url }}' }"
       
     - name: Publish to Nuget
       if: steps.create_release.outcome == 'success'
