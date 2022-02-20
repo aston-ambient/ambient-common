@@ -2,7 +2,7 @@
 
 namespace ambient_common.Models
 {
-    public class BaseModel
+    public abstract class BaseModel
     {
         public DateTime Created { get; set; }
         public string CreatedBy { get; set; }
