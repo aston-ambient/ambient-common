@@ -1,8 +1,11 @@
-﻿using static ambient_common.Child.ChildEnums;
+﻿using ambient_common.Data.Export;
+using System;
+using System.Text.Json;
+using static ambient_common.Child.ChildEnums;
 
 namespace ambient_common.Models
 {
-    public class AmbientOutcome : BaseModel
+    public class AmbientOutcome : BaseModel, IExportable<AmbientOutcome>
     {
         public int Id;
         public States ChildEmotion;
@@ -17,5 +20,23 @@ namespace ambient_common.Models
         public string DinnerPlateFoodItem1;
         public string DinnerPlateFoodItem2;
         public string DinnerPlateFoodItem3;
+
+        public string GetAsCSVRow(bool enumAsName)
+        {
+            var childEmotion = enumAsName ? Enum.GetName(typeof(States), ChildEmotion) : $"{(int)ChildEmotion}";
+            var childFusiness = enumAsName ? Enum.GetName(typeof(States), ChildFusiness) : $"{(int)ChildFusiness}";
+            var eatingOutcome = enumAsName ? Enum.GetName(typeof(Outcomes), EatingOutcome) : $"{(int)EatingOutcome}";
+            return $"{Id},{childEmotion},{childFusiness},{eatingOutcome},{Distracted},{Location},{OfferedFoodReward},{OfferedNonFoodReward},{PressureApplied},{ParentJoined},{Created}";
+        }
+
+        public string GetCSVHeaders()
+        {
+            return "id,child_emotion,child_fusiness,eating_outcome,distracted,location,offeredFoodReward,offeredNonFoodReward,pressureApplied,parentJoined,created";
+        }
+        public string GetAsJSONItem()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+
     }
 }
