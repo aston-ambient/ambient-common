@@ -15,13 +15,13 @@ namespace ambient_common.Models
 
         public string GetCSVHeaders()
         {
-            return "id,objectName,interactionTriggered,actionType,ambientOutcomeId";
+            return "id,objectName,interactionTriggered,actionType,ambientOutcomeId,created";
         }
 
         public string GetAsCSVRow(bool enumAsName)
         {
             var actionType = enumAsName ? Enum.GetName(typeof(Actions), ActionType) : $"{(int)ActionType}";
-            return $"{Id},{ObjectName},{InteractionTriggered},{actionType},{AmbientOutcomeId}";
+            return $"{Id},{ObjectName},{InteractionTriggered},{actionType},{AmbientOutcomeId},{Created}";
         }
 
         public string GetAsJSONItem()
