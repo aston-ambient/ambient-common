@@ -66,11 +66,11 @@ jobs:
       with:
          proj-path: ambient-common/ambient-common.csproj
          
-    - name: Build Changelog
-      id: github_release
-      uses: mikepenz/release-changelog-builder-action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #- name: Build Changelog
+    #  id: github_release
+    #  uses: mikepenz/release-changelog-builder-action@v1
+    #  env:
+    #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          
     - name: Create Release
       uses: actions/create-release@v1
@@ -81,7 +81,7 @@ jobs:
         prerelease: false
         release_name: ${{ steps.version.outputs.version }}
         tag_name: ${{ steps.version.outputs.version }}
-        body_path: ${{steps.github_release.outputs.changelog}}
+        body_path: 'ChangeLog'
       env:
         GITHUB_TOKEN: ${{ github.token }}
 

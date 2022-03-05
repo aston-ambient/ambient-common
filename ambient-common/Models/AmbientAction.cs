@@ -13,6 +13,14 @@ namespace ambient_common.Models
         public Actions ActionType { get; set; }
         public int AmbientOutcomeId { get; set; }
 
+        public AmbientAction(string objectName, string interactionTriggered, Actions actionType, int ambientOutcomeId)
+        {
+            ObjectName = objectName;
+            InteractionTriggered = interactionTriggered;
+            ActionType = actionType;
+            AmbientOutcomeId = ambientOutcomeId;
+        }
+
         public string GetCSVHeaders()
         {
             return "id,objectName,interactionTriggered,actionType,ambientOutcomeId,created";

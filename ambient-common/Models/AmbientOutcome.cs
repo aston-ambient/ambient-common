@@ -21,6 +21,34 @@ namespace ambient_common.Models
         public string DinnerPlateFoodItem2;
         public string DinnerPlateFoodItem3;
 
+        public AmbientOutcome(
+            States childEmotion,
+            States childFusiness,
+            Outcomes eatingOutcome,
+            bool distracted,
+            string location,
+            bool offeredFoodReward,
+            bool offeredNonFoodReward,
+            bool pressureApplied,
+            bool parentJoined,
+            string dinnerPlateFoodItem1,
+            string dinnerPlateFoodItem2,
+            string dinnerPlateFoodItem3)
+        {
+            ChildEmotion = childEmotion;
+            ChildFusiness = childFusiness;
+            EatingOutcome = eatingOutcome;
+            Distracted = distracted;
+            Location = location;
+            OfferedFoodReward = offeredFoodReward;
+            OfferedNonFoodReward = offeredNonFoodReward;
+            PressureApplied = pressureApplied;
+            ParentJoined = parentJoined;
+            DinnerPlateFoodItem1 = dinnerPlateFoodItem1;
+            DinnerPlateFoodItem2 = dinnerPlateFoodItem2;
+            DinnerPlateFoodItem3 = dinnerPlateFoodItem3;
+        }
+
         public string GetAsCSVRow(bool enumAsName)
         {
             var childEmotion = enumAsName ? Enum.GetName(typeof(States), ChildEmotion) : $"{(int)ChildEmotion}";
