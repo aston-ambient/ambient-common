@@ -13,6 +13,8 @@ namespace ambient_common.Models
         public Actions ActionType { get; set; }
         public int AmbientOutcomeId { get; set; }
 
+        public AmbientAction() {}
+
         public AmbientAction(string objectName, string interactionTriggered, Actions actionType, int ambientOutcomeId)
         {
             ObjectName = objectName;

@@ -10,6 +10,8 @@ namespace ambient_common.Models
         public CustomisationCategory Category { get; set; }
         public string Value { get; set; }
 
+        public ChildColourCustomisation() {}
+
         public ChildColourCustomisation(string displayText, CustomisationCategory category, string value)
         {
             DisplayText = displayText;

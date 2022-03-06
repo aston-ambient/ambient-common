@@ -21,6 +21,8 @@ namespace ambient_common.Models
         public string DinnerPlateFoodItem2;
         public string DinnerPlateFoodItem3;
 
+        public AmbientOutcome() {}
+
         public AmbientOutcome(
             States childEmotion,
             States childFusiness,

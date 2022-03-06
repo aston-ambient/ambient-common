@@ -14,6 +14,8 @@ namespace ambient_common.Models
         public double EatsReluctantly { get; set; }
         public double EatsEasily { get; set; }
 
+        public BehaviourReference() {}
+
         public BehaviourReference(States emotionalSate, States fussinessState, Actions action, double emotionalRefusal, double quietRefusal, double eatsReluctantly, double eatsEasily)
         {
             EmotionalSate = emotionalSate;
