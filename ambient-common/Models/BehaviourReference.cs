@@ -6,7 +6,7 @@ namespace ambient_common.Models
     {
         public int Id { get; set; }
         public int GameConfigurationId { get; set; }
-        public States EmotionalSate { get; set; }
+        public States EmotionalState { get; set; }
         public States FussinessState { get; set; }
         public Actions Action { get; set; }
         public double EmotionalRefusal { get; set; }
@@ -16,9 +16,9 @@ namespace ambient_common.Models
 
         public BehaviourReference() {}
 
-        public BehaviourReference(States emotionalSate, States fussinessState, Actions action, double emotionalRefusal, double quietRefusal, double eatsReluctantly, double eatsEasily)
+        public BehaviourReference(States emotionalState, States fussinessState, Actions action, double emotionalRefusal, double quietRefusal, double eatsReluctantly, double eatsEasily)
         {
-            EmotionalSate = emotionalSate;
+            EmotionalState = emotionalState;
             FussinessState = fussinessState;
             Action = action;
             EmotionalRefusal = emotionalRefusal;
