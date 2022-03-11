@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
-namespace ambient_common.Data.Export
+namespace AmbientCommon.Data.Export
 {
     public static class ExportImport
     {
@@ -28,14 +28,14 @@ namespace ambient_common.Data.Export
 
         public static string GetExportableCollectionAsJSONString<T>(this IEnumerable<T> items, bool enumAsName = false) where T : IExportable<T>
         {
-            var converter = enumAsName ? new JsonSerializerOptions() { Converters = { new JsonStringEnumConverter() } } : null;
-            return JsonSerializer.Serialize(items, converter);
+            var converter = enumAsName ? new JsonSerializerSettings() { Converters = { new StringEnumConverter() } } : null;
+            return JsonConvert.SerializeObject(items, converter);
         }
 
         public static List<T> GetExportableCollectionFromJSONString<T>(string json, bool enumAsName = false) where T : IExportable<T>
         {
-            var converter = enumAsName ? new JsonSerializerOptions() { Converters = { new JsonStringEnumConverter() } } : null;
-            return JsonSerializer.Deserialize<List<T>>(json, converter);
+            var converter = enumAsName ? new JsonSerializerSettings() { Converters = { new StringEnumConverter() } } : null;
+            return JsonConvert.DeserializeObject<List<T>>(json, converter);
         }
     }
 }

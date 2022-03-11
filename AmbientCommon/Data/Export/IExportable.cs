@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ambient_common.Data.Export
+namespace AmbientCommon.Data.Export
 {
     public interface IExportable<T>
     {

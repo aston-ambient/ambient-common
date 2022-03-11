@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ambient-common\ambient-common.csproj" />
+    <ProjectReference Include="..\ambient-common\AmbientCommon.csproj" />
   </ItemGroup>
 
 </Project>

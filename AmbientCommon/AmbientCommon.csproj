@@ -13,7 +13,7 @@
     <PackageTags>ambient, aston, game</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>0.0.6</Version>
+    <Version>0.0.10</Version>
     <PackageProjectUrl>https://github.com/aston-ambient/ambient-common</PackageProjectUrl>
   </PropertyGroup>
 
@@ -33,6 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="6.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 </Project>
