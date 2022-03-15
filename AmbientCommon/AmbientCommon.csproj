@@ -13,7 +13,11 @@
     <PackageTags>ambient, aston, game</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+<<<<<<< HEAD:AmbientCommon/AmbientCommon.csproj
     <Version>0.0.10</Version>
+=======
+    <Version>0.0.9</Version>
+>>>>>>> main:ambient-common/ambient-common.csproj
     <PackageProjectUrl>https://github.com/aston-ambient/ambient-common</PackageProjectUrl>
   </PropertyGroup>
 

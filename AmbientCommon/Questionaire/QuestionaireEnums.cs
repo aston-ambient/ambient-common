@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AmbientCommon.Questionaire
+namespace ambient_common.Questionaire
 {
     public class QuestionaireEnums
     {

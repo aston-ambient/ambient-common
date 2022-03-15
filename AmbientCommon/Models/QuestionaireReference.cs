@@ -1,9 +1,8 @@
-﻿using AmbientCommon.Questionaire;
-using Newtonsoft.Json;
+﻿using ambient_common.Questionaire;
 using System.Collections.Generic;
-using static AmbientCommon.Questionaire.QuestionaireEnums;
+using static ambient_common.Questionaire.QuestionaireEnums;
 
-namespace AmbientCommon.Models
+namespace ambient_common.Models
 {
     public class QuestionaireReference
     {
@@ -13,14 +12,7 @@ namespace AmbientCommon.Models
         public readonly string QuestionPlaceholderText = "";
         public readonly List<string> SelectionOptions = new List<string>();
         public readonly string SelectionAltText = "";
-        public List<RankingQuestionItem> RankingOptions = new List<RankingQuestionItem>();
-
-        [JsonConstructor]
-        public QuestionaireReference(QuestionCategories questionCategory, QuestionTypes questionType, string questionTitle, string questionHint, List<string> selectionOptions, string selectionAltText, List<RankingQuestionItem> rankingOptions)
-            : this(questionCategory, questionType, questionTitle, questionHint, selectionOptions, selectionAltText)
-        {
-            RankingOptions = rankingOptions;
-        }
+        public readonly List<RankingQuestionItem> RankingOptions = new List<RankingQuestionItem>();
 
         public QuestionaireReference(QuestionCategories questionCategory, QuestionTypes questionType, string questionTitle, string questionHint, List<string> selectionOptions, string selectionAltText)
         {
