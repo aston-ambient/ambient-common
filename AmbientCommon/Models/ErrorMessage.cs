@@ -1,4 +1,4 @@
-﻿namespace ambient_common.Models
+﻿namespace AmbientCommon.Models
 {
     public class ErrorMessage : BaseModel
     {

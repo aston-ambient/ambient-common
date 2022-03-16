@@ -1,9 +1,9 @@
-﻿using static ambient_common.Child.ChildEnums;
-using ambient_common.Data.Export;
-using System.Text.Json;
+﻿using static AmbientCommon.Child.ChildEnums;
+using AmbientCommon.Data.Export;
 using System;
+using Newtonsoft.Json;
 
-namespace ambient_common.Models
+namespace AmbientCommon.Models
 {
     public class AmbientAction : BaseModel, IExportable<AmbientAction>
     {
@@ -36,7 +36,7 @@ namespace ambient_common.Models
 
         public string GetAsJSONItem()
         {
-            return JsonSerializer.Serialize(this);
+            return JsonConvert.SerializeObject(this);
         }
     }
 }

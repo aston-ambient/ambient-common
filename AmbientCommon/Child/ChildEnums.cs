@@ -1,4 +1,4 @@
-﻿namespace ambient_common.Child
+﻿namespace AmbientCommon.Child
 {
     public class ChildEnums
     {

@@ -1,9 +1,9 @@
-﻿using ambient_common.Data.Export;
+﻿using AmbientCommon.Data.Export;
+using Newtonsoft.Json;
 using System;
-using System.Text.Json;
-using static ambient_common.Child.ChildEnums;
+using static AmbientCommon.Child.ChildEnums;
 
-namespace ambient_common.Models
+namespace AmbientCommon.Models
 {
     public class AmbientOutcome : BaseModel, IExportable<AmbientOutcome>
     {
@@ -65,7 +65,7 @@ namespace ambient_common.Models
         }
         public string GetAsJSONItem()
         {
-            return JsonSerializer.Serialize(this);
+            return JsonConvert.SerializeObject(this);
         }
 
     }

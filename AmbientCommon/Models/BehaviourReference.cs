@@ -1,6 +1,6 @@
-﻿using static ambient_common.Child.ChildEnums;
+﻿using static AmbientCommon.Child.ChildEnums;
 
-namespace ambient_common.Models
+namespace AmbientCommon.Models
 {
     public class BehaviourReference
     {

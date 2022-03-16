@@ -1,8 +1,8 @@
-﻿using ambient_common.Child;
-using ambient_common.Models;
+﻿using AmbientCommon.Child;
+using AmbientCommon.Models;
 using System;
 
-namespace ambient_common_test
+namespace AmbientCommonTest
 {
     internal class ObjectFactory
     {

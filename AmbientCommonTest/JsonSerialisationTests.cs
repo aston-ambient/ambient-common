@@ -1,11 +1,9 @@
-using ambient_common.Data.Export;
-using ambient_common.Models;
+using AmbientCommon.Data.Export;
+using AmbientCommon.Models;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Text.Json;
 
-namespace ambient_common_test
+namespace AmbientCommonTest
 {
     public class Tests
     {

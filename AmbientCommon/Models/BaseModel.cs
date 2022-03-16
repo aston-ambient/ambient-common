@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ambient_common.Models
+namespace AmbientCommon.Models
 {
     public abstract class BaseModel
     {
