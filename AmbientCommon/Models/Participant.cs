@@ -1,6 +1,6 @@
 ﻿namespace AmbientCommon.Models
 {
-    public class Participant
+    public class Participant : BaseModel
     {
         public int Id { get; set; }
         public string ParticipantReference { get; set; }

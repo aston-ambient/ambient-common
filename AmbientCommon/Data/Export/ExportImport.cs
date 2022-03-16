@@ -8,7 +8,7 @@ namespace AmbientCommon.Data.Export
 {
     public static class ExportImport
     {
-        public static string GetExportableCollectionAsCSVString<T>(this IEnumerable<T> items, bool enumAsName = false) where T : IExportable<T>
+        public static string GetExportableCollectionAsCSVString<T>(this IEnumerable<T> items, bool enumAsName = false) where T : IExportable
         {
             if (!items.Any())
             {
@@ -26,13 +26,13 @@ namespace AmbientCommon.Data.Export
             return sb.ToString();
         }
 
-        public static string GetExportableCollectionAsJSONString<T>(this IEnumerable<T> items, bool enumAsName = false) where T : IExportable<T>
+        public static string GetExportableCollectionAsJSONString<T>(this IEnumerable<T> items, bool enumAsName = false) where T : IExportable
         {
             var converter = enumAsName ? new JsonSerializerSettings() { Converters = { new StringEnumConverter() } } : null;
             return JsonConvert.SerializeObject(items, converter);
         }
 
-        public static List<T> GetExportableCollectionFromJSONString<T>(string json, bool enumAsName = false) where T : IExportable<T>
+        public static List<T> GetExportableCollectionFromJSONString<T>(string json, bool enumAsName = false) where T : IExportable
         {
             var converter = enumAsName ? new JsonSerializerSettings() { Converters = { new StringEnumConverter() } } : null;
             return JsonConvert.DeserializeObject<List<T>>(json, converter);

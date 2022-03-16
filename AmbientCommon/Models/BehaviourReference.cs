@@ -2,7 +2,7 @@
 
 namespace AmbientCommon.Models
 {
-    public class BehaviourReference
+    public class BehaviourReference : BaseModel
     {
         public int Id { get; set; }
         public int GameConfigurationId { get; set; }

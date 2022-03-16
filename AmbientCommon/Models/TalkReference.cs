@@ -2,7 +2,7 @@
 
 namespace AmbientCommon.Models
 {
-    public class TalkReference
+    public class TalkReference : BaseModel
     {
         public int Id { get; set; }
         public string DisplayText { get; set; }

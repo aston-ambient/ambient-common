@@ -4,15 +4,19 @@ using static AmbientCommon.Questionaire.QuestionaireEnums;
 
 namespace AmbientCommon.Models
 {
-    public class QuestionaireReference
+    public class QuestionaireReference : BaseModel
     {
-        public readonly QuestionCategories QuestionCategory;
-        public readonly QuestionTypes QuestionType;
-        public readonly string QuestionTitle;
-        public readonly string QuestionPlaceholderText = "";
-        public readonly List<string> SelectionOptions = new List<string>();
-        public readonly string SelectionAltText = "";
-        public readonly List<RankingQuestionItem> RankingOptions = new List<RankingQuestionItem>();
+        public QuestionCategories QuestionCategory;
+        public QuestionTypes QuestionType;
+        public string QuestionTitle;
+        public string QuestionPlaceholderText = "";
+        public List<string> SelectionOptions = new List<string>();
+        public string SelectionAltText = "";
+        public List<RankingQuestionItem> RankingOptions = new List<RankingQuestionItem>();
+
+        public QuestionaireReference()
+        {
+        }
 
         public QuestionaireReference(QuestionCategories questionCategory, QuestionTypes questionType, string questionTitle, string questionHint, List<string> selectionOptions, string selectionAltText)
         {
@@ -47,5 +51,6 @@ namespace AmbientCommon.Models
             QuestionType = questionType;
             QuestionTitle = questionTitle;
         }
+
     }
 }

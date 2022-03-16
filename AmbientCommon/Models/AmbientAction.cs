@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace AmbientCommon.Models
 {
-    public class AmbientAction : BaseModel, IExportable<AmbientAction>
+    public class AmbientAction : BaseModel, IExportable
     {
         public int Id { get; set; }
         public string ObjectName { get; set; }
