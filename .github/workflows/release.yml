@@ -9,7 +9,7 @@ jobs:
   build:
 
     env:
-      SOLUTION: 'ambient-common.sln'
+      SOLUTION: 'AmbientCommon.sln'
 
     runs-on: ubuntu-latest
 
@@ -42,8 +42,8 @@ jobs:
       uses: actions/upload-artifact@v2.3.1
       with:
         # Artifact name
-        name: "ambient-common"
-        path: ambient-common/bin/Release
+        name: "AmbientCommon"
+        path: AmbientCommon/bin/Release
         retention-days: 30
         
   publish-release:
@@ -57,14 +57,14 @@ jobs:
     - name: Download Artifact
       uses: actions/download-artifact@v2.1.0
       with:
-        name: "ambient-common"
+        name: "AmbientCommon"
         path: ./artifacts
     
     - name: Get Build Version
       uses: kzrnm/get-net-sdk-project-versions-action@v1
       id: version
       with:
-         proj-path: ambient-common/ambient-common.csproj
+         proj-path: AmbientCommon/AmbientCommon.csproj
          
     #- name: Build Changelog
     #  id: github_release
@@ -92,8 +92,8 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./artifacts/netstandard2.0/ambient-common.dll
-        asset_name: ambient-common.dll
+        asset_path: ./artifacts/netstandard2.0/AmbientCommon.dll
+        asset_name: AmbientCommon.dll
         asset_content_type: application/octet-stream
       
     - name: Trigger ambient-common-unity workflow
