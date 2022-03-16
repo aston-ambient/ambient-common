@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ambient_common.Questionaire
+﻿namespace AmbientCommon.Questionaire
 {
     public class RankingQuestionItem
     {
