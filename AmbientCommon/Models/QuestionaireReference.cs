@@ -1,8 +1,8 @@
-﻿using ambient_common.Questionaire;
+﻿using AmbientCommon.Questionaire;
 using System.Collections.Generic;
-using static ambient_common.Questionaire.QuestionaireEnums;
+using static AmbientCommon.Questionaire.QuestionaireEnums;
 
-namespace ambient_common.Models
+namespace AmbientCommon.Models
 {
     public class QuestionaireReference
     {
