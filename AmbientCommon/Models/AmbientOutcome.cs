@@ -5,21 +5,21 @@ using static AmbientCommon.Child.ChildEnums;
 
 namespace AmbientCommon.Models
 {
-    public class AmbientOutcome : BaseModel, IExportable<AmbientOutcome>
+    public class AmbientOutcome : BaseModel, IExportable
     {
-        public int Id;
-        public States ChildEmotion;
-        public States ChildFusiness;
-        public Outcomes EatingOutcome;
-        public bool Distracted;
-        public string Location;
-        public bool OfferedFoodReward;
-        public bool OfferedNonFoodReward;
-        public bool PressureApplied;
-        public bool ParentJoined;
-        public string DinnerPlateFoodItem1;
-        public string DinnerPlateFoodItem2;
-        public string DinnerPlateFoodItem3;
+        public long Id { get; set; }
+        public States ChildEmotion { get; set; }
+        public States ChildFusiness { get; set; }
+        public Outcomes EatingOutcome { get; set; }
+        public bool Distracted { get; set; }
+        public string Location { get; set; }
+        public bool OfferedFoodReward { get; set; }
+        public bool OfferedNonFoodReward { get; set; }
+        public bool PressureApplied { get; set; }
+        public bool ParentJoined { get; set; }
+        public string DinnerPlateFoodItem1 { get; set; }
+        public string DinnerPlateFoodItem2 { get; set; }
+        public string DinnerPlateFoodItem3 { get; set; }
 
         public AmbientOutcome() {}
 

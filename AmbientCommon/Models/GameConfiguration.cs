@@ -1,6 +1,6 @@
 ﻿namespace AmbientCommon.Models
 {
-    public class GameConfiguration
+    public class GameConfiguration : BaseModel
     {
         public int Id { get; set; }
         public string Label { get; set; }

@@ -2,7 +2,7 @@
 
 namespace AmbientCommon.Models
 {
-    public class ChildColourCustomisation
+    public class ChildColourCustomisation : BaseModel
     {
         public int Id { get; set; }
         public int GameConfigurationId { get; set; }

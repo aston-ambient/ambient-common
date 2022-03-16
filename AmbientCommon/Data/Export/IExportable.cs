@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AmbientCommon.Data.Export
 {
-    public interface IExportable<T>
+    public interface IExportable
     {
         string GetCSVHeaders();
         string GetAsCSVRow(bool enumAsName);
