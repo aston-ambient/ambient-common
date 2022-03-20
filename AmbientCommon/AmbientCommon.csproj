@@ -13,7 +13,7 @@
     <PackageTags>ambient, aston, game</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>0.0.12</Version>
+    <Version>0.0.13</Version>
     <PackageProjectUrl>https://github.com/aston-ambient/ambient-common</PackageProjectUrl>
   </PropertyGroup>
 
