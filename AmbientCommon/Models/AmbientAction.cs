@@ -7,11 +7,11 @@ namespace AmbientCommon.Models
 {
     public class AmbientAction : BaseModel, IExportable
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string ObjectName { get; set; }
         public string InteractionTriggered { get; set; }
         public Actions ActionType { get; set; }
-        public int AmbientOutcomeId { get; set; }
+        public long AmbientOutcomeId { get; set; }
         public AmbientOutcome AmbientOutcome { get; set; }
 
         public AmbientAction() {}

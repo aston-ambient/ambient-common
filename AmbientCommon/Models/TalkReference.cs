@@ -5,13 +5,13 @@ namespace AmbientCommon.Models
 {
     public class TalkReference : BaseModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         [MaxLength(100)]
         public string DisplayText { get; set; }
         public TalkTypes TalkType { get; set; }
         public bool ActiveWhenNearParent { get; set; }
 
-        public int GameConfigurationId { get; set; }
+        public long GameConfigurationId { get; set; }
         public GameConfiguration GameConfiguration { get; set; }
 
         public TalkReference() {}

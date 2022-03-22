@@ -1,6 +1,7 @@
 ﻿using AmbientCommon.Data.Export;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using static AmbientCommon.Child.ChildEnums;
 
 namespace AmbientCommon.Models
@@ -20,6 +21,9 @@ namespace AmbientCommon.Models
         public string DinnerPlateFoodItem1 { get; set; }
         public string DinnerPlateFoodItem2 { get; set; }
         public string DinnerPlateFoodItem3 { get; set; }
+        public ICollection<AmbientAction> AmbientActions { get; set; }
+        public long AttmeptId { get; set; }
+        public Attempt Attempt { get; set; }
 
         public AmbientOutcome() {}
 

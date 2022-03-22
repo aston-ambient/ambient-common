@@ -5,7 +5,7 @@ namespace AmbientCommon.Models
 {
     public class GameConfiguration : BaseModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         [MaxLength(100)]
         public string Label { get; set; }
         public bool Protected { get; set; }

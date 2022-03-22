@@ -4,7 +4,7 @@ namespace AmbientCommon.Models
 {
     public class BehaviourReference : BaseModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public States EmotionalState { get; set; }
         public States FussinessState { get; set; }
         public Actions Action { get; set; }
@@ -13,7 +13,7 @@ namespace AmbientCommon.Models
         public double EatsReluctantly { get; set; }
         public double EatsEasily { get; set; }
 
-        public int GameConfigurationId { get; set; }
+        public long GameConfigurationId { get; set; }
         public GameConfiguration GameConfiguration { get; set; }
 
         public BehaviourReference() {}

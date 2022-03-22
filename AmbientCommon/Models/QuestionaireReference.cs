@@ -6,15 +6,16 @@ namespace AmbientCommon.Models
 {
     public class QuestionaireReference : BaseModel
     {
-        public QuestionCategories QuestionCategory;
-        public QuestionTypes QuestionType;
-        public string QuestionTitle;
-        public string QuestionPlaceholderText = "";
-        public List<string> SelectionOptions = new List<string>();
-        public string SelectionAltText = "";
-        public List<RankingQuestionItem> RankingOptions = new List<RankingQuestionItem>();
+        public long Id { get; set; }
+        public QuestionCategories QuestionCategory { get; set; }
+        public QuestionTypes QuestionType { get; set; }
+        public string QuestionTitle { get; set; }
+        public string QuestionPlaceholderText { get; set; } = "";
+        public List<string> SelectionOptions { get; set; } = new List<string>();
+        public string SelectionAltText { get; set; } = "";
+        public List<RankingQuestionItem> RankingOptions { get; set; } = new List<RankingQuestionItem>();
 
-        public int GameConfigurationId { get; set; }
+        public long GameConfigurationId { get; set; }
         public GameConfiguration GameConfiguration { get; set; }
 
         public QuestionaireReference()
