@@ -12,6 +12,7 @@ namespace AmbientCommon.Models
         public string InteractionTriggered { get; set; }
         public Actions ActionType { get; set; }
         public int AmbientOutcomeId { get; set; }
+        public AmbientOutcome AmbientOutcome { get; set; }
 
         public AmbientAction() {}
 

@@ -14,6 +14,9 @@ namespace AmbientCommon.Models
         public string SelectionAltText = "";
         public List<RankingQuestionItem> RankingOptions = new List<RankingQuestionItem>();
 
+        public int GameConfigurationId { get; set; }
+        public GameConfiguration GameConfiguration { get; set; }
+
         public QuestionaireReference()
         {
         }
